@@ -1,17 +1,18 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import {fetchArtists} from './actions/fetchArtists'
+import ArtistsContainer from './containers/ArtistsContainer'
 
 class App extends React.Component {
 
   componentDidMount() {
-    this.props.fetchArtists()
+    this.props.fetchArtists({type: 'FETCH_ARTISTS', payload: {name: 'Artist'}})
   }
 
   render() {
     return (
       <div className="App">
-        App
+        <ArtistsContainer/>
       </div>
   );
 }
