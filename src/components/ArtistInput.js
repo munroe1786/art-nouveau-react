@@ -2,10 +2,14 @@ import React from 'react'
 
 class ArtistInput extends React.Component {
 
+    //this component will have a form 
+
     render() {
         return (
             <div>
-                ArtistInput
+                <form>
+                    
+                </form>
             </div>
         )
     }
