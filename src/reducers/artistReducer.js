@@ -1,6 +1,9 @@
 
 export default function artistReducer(state = {artists: []}, action) {
-
-    return action.payload
-
+    switch (action.type) {
+        case 'FETCH_ARTISTS':
+            return {artists: action.payload}
+        default:
+            return state
+    }
 }
