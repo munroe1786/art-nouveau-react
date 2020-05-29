@@ -6,13 +6,23 @@ class ArtistInput extends React.Component {
 
     //this component will have a form 
 
+    //event will automatically be passed in if nothing is passed into this.handleOnChange
+
+    handleOnChange = (event) => {
+        debugger;
+        this.setState({
+            name: event.target.value
+        })
+
+    }
+
     render() {
         return (
             <div>
                 <form>
                     <p>
                     <label>Name</label>
-                    <input type='text' placeholder='Name' value={this.state.name}/>
+                    <input type='text' placeholder='Name' value={this.state.name} onChange={this.handleOnChange}/>
                     </p>
                     <p>
                     <label>Born</label>
