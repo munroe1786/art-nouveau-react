@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {Route} from 'react-router-dom'
 import {fetchArtists} from '../actions/fetchArtists'
 import Artists from '../components/Artists'
+import Artist from '../components/Artist'
 import ArtistInput from '../components/ArtistInput'
 
 class ArtistsContainer extends React.Component {
@@ -22,7 +23,8 @@ class ArtistsContainer extends React.Component {
         return (
             <div>
                 <Route path='/artists/new' component={ArtistInput} />
-                <Route exact path='/artists' render={() => <Artists artists={this.props.artists}/> } />
+                <Route path='/artists/:id' render={(routerProps) => <Artist {...routerProps} artists={this.props.artists}/> } />
+                <Route exact path='/artists' render={(routerProps) => <Artists {...routerProps} artists={this.props.artists}/> } />
             </div>
         )
         //artists={this.props.artists} - get access to our artists as props in our store 
@@ -44,3 +46,5 @@ export default connect(mapStateToProps, {fetchArtists})(ArtistsContainer);
 //added fetchArtists as second argument to connect so that when we call this.props.fetchArtists it will actually update our redux store--would not happen otherwise
 
 //setting up routes in this component because it's connected to the store
+
+////<Route path='/artists/:id' render={(routerProps) => <Artist {...routerProps} artists={this.props.artists}/>} />

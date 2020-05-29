@@ -1,4 +1,5 @@
 import React from 'react'
+import {Route} from 'react-router-dom'
 import Artist from './Artist'
 
 //set up to receive props.  props is being passed from artistsContainer 
@@ -10,7 +11,7 @@ const Artists = (props) => {
     return (
         <div>
             {props.artists.map(artist => 
-            <li key={artist.id}><Artist artist={artist}/></li> )}
+            <div key={artist.id}><Artist artist={artist}/></div> )}
         </div>
     )
 }
