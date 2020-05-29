@@ -9,6 +9,8 @@ class App extends React.Component {
     this.props.fetchArtists({type: 'FETCH_ARTISTS', payload: {name: 'Artist'}})
   }
 
+  //fetches all artists from api
+
   render() {
     return (
       <div className="App">

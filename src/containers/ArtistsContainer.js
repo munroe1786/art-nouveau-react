@@ -31,7 +31,7 @@ class ArtistsContainer extends React.Component {
 
 }
 
-//mapStateToProps gets access to artists in our store, mapping them to props and send them to our artists component
+//mapStateToProps gets access to artists in our redux store, mapping them to props and send them to our artists component
 const mapStateToProps = state => {
     return {
         artists: state.artists
