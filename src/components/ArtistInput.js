@@ -16,10 +16,16 @@ class ArtistInput extends React.Component {
 
     }
 
+    handleSubmit = () => {
+        
+    }
+
+    //need data to go to db.  point of app is to save created items in db and updating redux store
+
     render() {
         return (
             <div>
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     <p>
                     <label>Name</label>
                         <input type='text' placeholder='Name' value={this.state.name} name="name" onChange={this.handleOnChange} 
