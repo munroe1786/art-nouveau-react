@@ -9,11 +9,9 @@ const Artist = (props) => {
     return (
         <div>
         <h2>
-            {artist ? null : <Redirect to='/artists'/>}
-            
             {artist ? artist.name : null}
         </h2>
-        WorksContainer
+        <WorksContainer artist={artist} />
         </div>
     )
 
