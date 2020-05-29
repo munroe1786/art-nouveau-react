@@ -21,6 +21,8 @@ class ArtistInput extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault()
         this.props.addArtist(this.state)
+        this.setState({name: '', date_of_birth: '', date_of_death: '', years_active: '', nationality: ''
+        })
     }
 
     //need data to go to db.  point of app is to save created items in db and updating redux store
