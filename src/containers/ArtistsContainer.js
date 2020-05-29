@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Route} from 'react-router-dom'
+import {Route, Switch} from 'react-router-dom'
 import {fetchArtists} from '../actions/fetchArtists'
 import Artists from '../components/Artists'
 import Artist from '../components/Artist'
@@ -22,9 +22,11 @@ class ArtistsContainer extends React.Component {
     render() {
         return (
             <div>
-                <Route path='/artists/new' component={ArtistInput} />
-                <Route path='/artists/:id' render={(routerProps) => <Artist {...routerProps} artists={this.props.artists}/> } />
-                <Route exact path='/artists' render={(routerProps) => <Artists {...routerProps} artists={this.props.artists}/> } />
+                <Switch>
+                    <Route path='/artists/new' component={ArtistInput} />
+                    <Route path='/artists/:id' render={(routerProps) => <Artist {...routerProps} artists={this.props.artists}/> } />
+                    <Route exact path='/artists' render={(routerProps) => <Artists {...routerProps} artists={this.props.artists}/> } />
+                </Switch>
             </div>
         )
         //artists={this.props.artists} - get access to our artists as props in our store 
