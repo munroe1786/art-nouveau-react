@@ -3,6 +3,9 @@ export default function artistReducer(state = {artists: []}, action) {
     switch (action.type) {
         case 'FETCH_ARTISTS':
             return {artists: action.payload}
+        case 'ADD_ARTIST':
+            return {...state, artists: [...state.artists, action.payload]}
+            //add ...state spread operator so that state is retained if you need to add more key/value pairs later
         default:
             return state
     }
