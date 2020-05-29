@@ -25,7 +25,7 @@ class ArtistInput extends React.Component {
         })
     }
 
-    //need data to go to db.  point of app is to save created items in db and updating redux store
+    //need data to go to db.  point of app is to save created items in db and update the redux store
 
     render() {
         return (
