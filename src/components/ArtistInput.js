@@ -9,9 +9,9 @@ class ArtistInput extends React.Component {
     //event will automatically be passed in if nothing is passed into this.handleOnChange
 
     handleOnChange = (event) => {
-        debugger;
+        //debugger;
         this.setState({
-            name: event.target.value
+            [event.target.name]: event.target.value //brackets evaluate event.target.name to read value of attribute and then sets it as the key - assigns a key in an object that needs to be evaluated first//
         })
 
     }
