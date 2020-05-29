@@ -10,8 +10,7 @@ const Artists = (props) => {
     return (
         <div>
             {props.artists.map(artist => 
-            <li key={artist.id}>{artist.name} - {artist.year_of_birth} {artist.year_of_death} {artist.years_active} {artist.nationality}
-            </li> )}
+            <li key={artist.id}><Artist artist={artist}/></li> )}
         </div>
     )
 }
