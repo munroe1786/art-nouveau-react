@@ -1,4 +1,6 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import { addArtist } from '../actions/addArtist'
 
 class ArtistInput extends React.Component {
 
@@ -16,8 +18,9 @@ class ArtistInput extends React.Component {
 
     }
 
-    handleSubmit = () => {
-        
+    handleSubmit = (event) => {
+        event.preventDefault()
+        this.props.addArtist
     }
 
     //need data to go to db.  point of app is to save created items in db and updating redux store
@@ -56,4 +59,7 @@ class ArtistInput extends React.Component {
     }
 }
 
-export default ArtistInput
+export default connect(null, {addArtist})(ArtistInput)
+
+//pass null instead of mapStateToProps because this component does not care about previous state
+//2nd argument is action creator for addArtist---directly importing it due to thunk setup---
