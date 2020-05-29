@@ -1,6 +1,14 @@
 export const addArtist = (data) => {
-    return (dispatch) {
 
+    return (dispatch) => {
+        fetch(`http://localhost3000/api/vi/artists`, {
+            headers: {
+                'Content-Type': 'application.json',
+                'Accept': 'application.json'
+            },
+            method: 'POST',
+            body: JSON.stringify(data)
+        })
     }
 }
 

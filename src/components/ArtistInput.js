@@ -20,7 +20,7 @@ class ArtistInput extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        this.props.addArtist
+        this.props.addArtist(this.state)
     }
 
     //need data to go to db.  point of app is to save created items in db and updating redux store
