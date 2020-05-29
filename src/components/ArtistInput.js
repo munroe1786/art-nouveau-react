@@ -22,23 +22,27 @@ class ArtistInput extends React.Component {
                 <form>
                     <p>
                     <label>Name</label>
-                    <input type='text' placeholder='Name' value={this.state.name} name="name" onChange={this.handleOnChange}/>
+                        <input type='text' placeholder='Name' value={this.state.name} name="name" onChange={this.handleOnChange} 
+                        />                        
                     </p>
                     <p>
                     <label>Born</label>
-                    <input type='text' placeholder='Born' value={this.state.date_of_birth} name="date_of_birth" onChange={this.handleOnChange}/>
+                        <input type='text' placeholder='Born' value={this.state.date_of_birth} name="date_of_birth" onChange={this.handleOnChange}/>
                     </p>
                     <p>
                     <label>Died</label>
-                    <input type='text' placeholder='Died' value={this.state.date_of_death} name="date_of_death" onChange={this.handleOnChange}/>
+                        <input type='text' placeholder='Died' value={this.state.date_of_death} name="date_of_death" onChange={this.handleOnChange}/>
                     </p>
                     <p>
                     <label>Years Active</label>
-                    <input type='text' placeholder='Years Active' value={this.state.years_active} name="years_active" onChange={this.handleOnChange}/>
+                        <input type='text' placeholder='Years Active' value={this.state.years_active} name="years_active" onChange={this.handleOnChange}/>
                     </p>
                     <p>
                     <label>Nationality</label>
-                    <input type='text' placeholder='Nationality' value={this.state.nationality} name="nationality" onChange={this.handleOnChange}/>
+                        <input type='text' placeholder='Nationality' value={this.state.nationality} name="nationality" onChange={this.handleOnChange}/>
+                    </p>
+                    <p>
+                        <input type="submit" />
                     </p>
                 </form>
             </div>
