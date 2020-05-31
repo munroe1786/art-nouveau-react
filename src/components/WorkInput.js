@@ -17,23 +17,23 @@ class WorkInput extends React.Component {
                 <form>
                     <p>
                     <label>Title</label>
-                    <input type='text' placeholder='Title'name="name"></input>
+                    <input type='text' placeholder='Title' name="name" value={this.state.title}></input>
                     </p>
                     <p>
                     <label>Date</label>
-                    <input type='text' placeholder='Date'name="date"></input>
+                    <input type='text' placeholder='Date'name="date" value={this.state.date}></input>
                     </p>
                     <p>
                     <label>Image</label>
-                    <input type='text' placeholder='Image'name="image_url"></input>
+                    <input type='text' placeholder='Image'name="image_url" value={this.state.image_url}></input>
                     </p>
                     <p>
                     <label>Media</label>
-                    <input type='text' placeholder='Media'name="media"></input>
+                    <input type='text' placeholder='Media'name="media" value={this.state.media}></input>
                     </p>
                     <p>
                     <label>Description</label>
-                    <input type='text' placeholder='Description'name="description"></input>
+                    <input type='text' placeholder='Description'name="description" value={this.state.description}></input>
                     </p>
                 </form>
             </div>
