@@ -4,8 +4,8 @@ import WorksContainer from '../containers/WorksContainer'
 
 const Artist = (props) => {
 
-    let artist = props.artists[props.match.params.id - 1]
-    console.log(artist)
+    let artist = props.artists.filter(artist => artist.id == props.match.params.id)[0]
+
     return (
         <div>
         <h2>
