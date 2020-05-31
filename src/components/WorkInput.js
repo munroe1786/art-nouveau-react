@@ -22,7 +22,7 @@ class WorkInput extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-
+        //addWork(this.state, this.props.id)
     }
 
     render() {
