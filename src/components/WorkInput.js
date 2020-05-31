@@ -3,6 +3,14 @@ import {connect} from 'react-redux'
 
 class WorkInput extends React.Component {
 
+    state = {
+        title: '',
+        date: '',
+        image_url: '',
+        media: '',
+        description: ''
+    }
+
     render() {
         return (
             <div>
@@ -17,7 +25,11 @@ class WorkInput extends React.Component {
                     </p>
                     <p>
                     <label>Image</label>
-                    <input type='text' placeholder='Image'name="image"></input>
+                    <input type='text' placeholder='Image'name="image_url"></input>
+                    </p>
+                    <p>
+                    <label>Media</label>
+                    <input type='text' placeholder='Media'name="media"></input>
                     </p>
                     <p>
                     <label>Description</label>
