@@ -11,29 +11,57 @@ class WorkInput extends React.Component {
         description: ''
     }
 
+    handleChange = () => {
+
+    }
+
     render() {
         return (
             <div>
                 <form>
                     <p>
                     <label>Title</label>
-                    <input type='text' placeholder='Title' name="name" value={this.state.title}></input>
+                    <input type='text' 
+                        placeholder='Title' 
+                        name="name" value={this.state.title}
+                        onChange={this.handleChange}>
+                    </input>
                     </p>
                     <p>
                     <label>Date</label>
-                    <input type='text' placeholder='Date'name="date" value={this.state.date}></input>
+                    <input type='text' 
+                        placeholder='Date'
+                        name="date" 
+                        value={this.state.date}
+                        onChange={this.handleChange}>
+                    </input>
                     </p>
                     <p>
                     <label>Image</label>
-                    <input type='text' placeholder='Image'name="image_url" value={this.state.image_url}></input>
+                    <input type='text' 
+                        placeholder='Image'
+                        name="image_url" 
+                        value={this.state.image_url}
+                        onChange={this.handleChange}>
+                    </input>
                     </p>
                     <p>
                     <label>Media</label>
-                    <input type='text' placeholder='Media'name="media" value={this.state.media}></input>
+                    <input type='text' 
+                        placeholder='Media'
+                        name="media" 
+                        value={this.state.media}
+                        onChange={this.handleChange}>
+                    </input>
                     </p>
                     <p>
                     <label>Description</label>
-                    <input type='text' placeholder='Description'name="description" value={this.state.description}></input>
+                    <input type='text' 
+                        placeholder='Description'
+                        name="description" 
+                        value={this.state.description}
+                        onChange={this.handleChange}>
+                    </input>
                     </p>
                 </form>
             </div>
