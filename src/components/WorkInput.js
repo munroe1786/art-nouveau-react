@@ -20,10 +20,15 @@ class WorkInput extends React.Component {
 
     }
 
+    handleSubmit = (event) => {
+        event.preventDefault()
+
+    }
+
     render() {
         return (
             <div>
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     <p>
                     <label>Title</label>
                     <input type='text' 
@@ -68,6 +73,7 @@ class WorkInput extends React.Component {
                         onChange={this.handleChange}>
                     </input>
                     </p>
+                    <input type="submit"/>
                 </form>
             </div>
         )
