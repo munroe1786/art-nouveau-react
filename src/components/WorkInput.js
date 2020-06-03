@@ -1,8 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {addWork} from '../actions/addWork'
 
 class WorkInput extends React.Component {
-
+    
     state = {
         title: '',
         date: '',
@@ -22,56 +23,54 @@ class WorkInput extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        //addWork(this.state, this.props.id)
+        this.props.addWork(this.state, this.props.artist.id)
+        this.setState({
+            title: '',
+            date: '',
+            image_url: '',
+            media: '',
+            description: ''
+        })
     }
 
     render() {
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
+                    <h3>Add a new work by this artist:</h3>
                     <p>
                     <label>Title</label>
                     <input type='text' 
-                        placeholder='Title' 
-                        name="name" value={this.state.title}
-                        onChange={this.handleChange}>
-                    </input>
+                        name="title" value={this.state.title}
+                        onChange={this.handleChange}/>
                     </p>
                     <p>
                     <label>Date</label>
                     <input type='text' 
-                        placeholder='Date'
                         name="date" 
                         value={this.state.date}
-                        onChange={this.handleChange}>
-                    </input>
+                        onChange={this.handleChange}/>
                     </p>
                     <p>
                     <label>Image</label>
                     <input type='text' 
-                        placeholder='Image'
                         name="image_url" 
                         value={this.state.image_url}
-                        onChange={this.handleChange}>
-                    </input>
+                        onChange={this.handleChange}/>
                     </p>
                     <p>
                     <label>Media</label>
                     <input type='text' 
-                        placeholder='Media'
                         name="media" 
                         value={this.state.media}
-                        onChange={this.handleChange}>
-                    </input>
+                        onChange={this.handleChange}/>
                     </p>
                     <p>
                     <label>Description</label>
-                    <input type='text' 
-                        placeholder='Description'
+                    <input type='text'
                         name="description" 
                         value={this.state.description}
-                        onChange={this.handleChange}>
-                    </input>
+                        onChange={this.handleChange}/>
                     </p>
                     <input type="submit"/>
                 </form>
@@ -80,7 +79,7 @@ class WorkInput extends React.Component {
     }
 }
 
-export default connect(null, )(WorkInput)
+export default connect(null, {addWork})(WorkInput)
 
 //connect this component so that when we call new transaction function, it dispatches function to our reducer.
 //receives props from TransactionContainer---but will need mapDispatch

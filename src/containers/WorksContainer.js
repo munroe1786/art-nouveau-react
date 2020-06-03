@@ -7,7 +7,7 @@ class WorksContainer extends React.Component {
     render() {
         return (
             <div>
-                <WorkInput artist={this.props.artist} />
+                <WorkInput artist={this.props.artist}/>
                 <Works works={this.props.artist && this.props.artist.works}/>
             </div>
         )

@@ -25,7 +25,7 @@ class ArtistsContainer extends React.Component {
                 <Switch>
                     <Route path='/artists/new' component={ArtistInput} />
                     <Route path='/artists/:id' render={(routerProps) => <Artist {...routerProps} artists={this.props.artists}/> } />
-                    <Route exact path='/artists' render={(routerProps) => <Artists {...routerProps} artists={this.props.artists}/> } />
+                    <Route path='/artists' render={(routerProps) => <Artists {...routerProps} artists={this.props.artists}/> } />
                 </Switch>
             </div>
         )
@@ -43,7 +43,7 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {fetchArtists})(ArtistsContainer);
+export default connect(mapStateToProps, {fetchArtists})(ArtistsContainer)
 
 //added fetchArtists as second argument to connect so that when we call this.props.fetchArtists it will actually update our redux store--would not happen otherwise
 

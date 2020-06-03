@@ -10,7 +10,7 @@ import Artist from './Artist'
 const Artists = (props) => {
     return (
         <div>
-            {props.artists.map(artist => 
+            {props.artists && props.artists.map(artist => 
                 <li key={artist.id}>
                     <Link to={`/artists/${artist.id}`}>{artist.name}</Link>
                 </li> )}

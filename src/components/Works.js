@@ -1,10 +1,14 @@
 import React from 'react'
 
 const Works = (props) => {
-    //debugger
+
+    //console.log(props.works)
+    //debugger;
     //below---add props.works as a check to see if there are props.works---if props.works is not undefined, then the map function will run.
     return (
+    
         <div>
+            <h3>Works by this artist:</h3>
             {props.works && props.works.map(work =>
                <li key={work.id}>
                    <p>
@@ -14,7 +18,10 @@ const Works = (props) => {
                    {work.date}
                    </p>
                    <p>
-                       {work.image_url}
+                    {work.image_url}
+                    </p>
+                    <p>
+                       {work.media}
                     </p>
                    <p>
                    {work.description}
