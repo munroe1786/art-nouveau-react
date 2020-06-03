@@ -5,6 +5,14 @@ const Works = (props) => {
     //console.log(props.works)
     //debugger;
     //below---add props.works as a check to see if there are props.works---if props.works is not undefined, then the map function will run.
+    
+    const handleDelete = () => {
+
+        
+    }
+
+
+    
     return (
     
         <div>
@@ -26,6 +34,7 @@ const Works = (props) => {
                    <p>
                    {work.description}
                    </p>
+                   <button onClick={handleDelete}>Delete</button>
                </li>    
             )}
         </div>
