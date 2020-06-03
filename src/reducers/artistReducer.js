@@ -23,7 +23,7 @@ export default function artistReducer(state = {artists: []}, action) {
                     return artist
                 }
             })
-            return {...state, artists: artists}
+            return {...state, artists: artistsDeleteWork}
         default:
             return state
     }

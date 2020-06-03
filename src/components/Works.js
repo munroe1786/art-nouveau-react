@@ -1,4 +1,6 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import {deleteWork} from '../actions/deleteWork'
 
 const Works = (props) => {
 
@@ -6,9 +8,9 @@ const Works = (props) => {
     //debugger;
     //below---add props.works as a check to see if there are props.works---if props.works is not undefined, then the map function will run.
     
-    const handleDelete = () => {
+    const handleDelete = (workId, artistId) => {
+        props.deleteWork()
 
-        
     }
 
 
@@ -34,11 +36,11 @@ const Works = (props) => {
                    <p>
                    {work.description}
                    </p>
-                   <button onClick={handleDelete}>Delete</button>
+                   <button onClick={() => handleDelete(work.id, work.artist.id)}>Delete</button>
                </li>    
             )}
         </div>
     )
 }
 
-export default Works
+export default connect(null, {deleteWork})(Works)
