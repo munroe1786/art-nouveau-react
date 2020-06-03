@@ -8,8 +8,9 @@ const Works = (props) => {
     //debugger;
     //below---add props.works as a check to see if there are props.works---if props.works is not undefined, then the map function will run.
     
-    const handleDelete = (workId, artistId) => {
-        props.deleteWork()
+    const handleDelete = (work) => {
+        debugger;
+        props.deleteWork(work.id, work.artist_id)
 
     }
 
@@ -36,7 +37,7 @@ const Works = (props) => {
                    <p>
                    {work.description}
                    </p>
-                   <button onClick={() => handleDelete(work.id, work.artist.id)}>Delete</button>
+                   <button onClick={() => handleDelete(work)}>Delete</button>
                </li>    
             )}
         </div>
