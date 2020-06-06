@@ -1,5 +1,6 @@
 import React from 'react'
 import {Redirect} from 'react-router-dom'
+import ArtistEdit from './ArtistEdit'
 import WorksContainer from '../containers/WorksContainer'
 
 const Artist = (props) => {
@@ -16,6 +17,7 @@ const Artist = (props) => {
             {artist ? artist.name : null} - {artist ? artist.nationality : null}
         </h2>
         <WorksContainer artist={artist} />
+        <ArtistEdit artist={artist} />
         </div>
     )
 

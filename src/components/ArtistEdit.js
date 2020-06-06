@@ -1,10 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import { addArtist } from '../actions/addArtist'
+import { editArtist } from '../actions/editArtist'
 
-class ArtistInput extends React.Component {
-
-    //look into adding bind to state so that this is not undefined--part 1 exercise legger video about 1 hour 35 mins
+class ArtistEdit extends React.Component {
 
     state = {name: '', date_of_birth: '', date_of_death: '', years_active: '', nationality: ''} //local state, inside component itself, not in redux store, might use global state if re-using forms--same for creation or updating
 
@@ -15,14 +13,15 @@ class ArtistInput extends React.Component {
     handleChange = (event) => {
         //debugger;
         this.setState({
-            [event.target.name]: event.target.value //brackets evaluate event.target.name to read value of attribute and then sets it as the key - assigns a key in an object that needs to be evaluated first---called key interpolation//
+            [event.target.name]: event.target.value //brackets evaluate event.target.name to read value of attribute and then sets it as the key - assigns a key in an object that needs to be evaluated first//
         })
 
     }
 
     handleSubmit = (event) => {
         event.preventDefault()
-        this.props.addArtist(this.state)
+        let artist = {...this.state, id: this.props.artist.id}
+        this.props.editArtist(artist)
         this.setState({name: '', date_of_birth: '', date_of_death: '', years_active: '', nationality: ''
         })
     }
@@ -67,7 +66,11 @@ class ArtistInput extends React.Component {
     }
 }
 
-export default connect(null, {addArtist})(ArtistInput)
+ArtistEdit.defaultProps = {
+    artists: {}
+}
+
+export default connect(null, {editArtist})(ArtistEdit)
 
 //pass null instead of mapStateToProps because this component does not care about previous state
 //2nd argument is action creator for addArtist---directly importing it due to thunk setup---
