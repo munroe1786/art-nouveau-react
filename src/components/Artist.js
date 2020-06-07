@@ -16,8 +16,8 @@ const Artist = (props) => {
         <h2>
             {artist ? artist.name : null} - {artist ? artist.nationality : null}
         </h2>
-        <WorksContainer artist={artist} />
         <ArtistEdit artist={artist} />
+        <WorksContainer artist={artist} />
         </div>
     )
 

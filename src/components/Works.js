@@ -11,14 +11,10 @@ const Works = (props) => {
     const handleDelete = (work) => {
         debugger;
         props.deleteWork(work.id, work.artist_id)
-
     }
-
-
     
     return (
-    
-        <div>
+         <div>
             <h3>Works by this artist:</h3>
             {props.works && props.works.map(work =>
                <li key={work.id}>

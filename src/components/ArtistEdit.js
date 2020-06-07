@@ -33,6 +33,7 @@ class ArtistEdit extends React.Component {
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <p>
+                        <h2>Edit this artist:</h2>
                     <label>Name</label>
                         <input type='text' placeholder='Name' value={this.state.name} name="name" onChange={this.handleChange} 
                         />                        
