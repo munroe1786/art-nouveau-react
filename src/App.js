@@ -21,7 +21,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>Welcome to Art Nouveau Collector....</h1>
+        <h1>Welcome to Art Nouveau Collector</h1>
         <Switch>
           <Route path='/artists' render={(routerProps) => <ArtistsContainer {...routerProps} />} />
         </Switch>

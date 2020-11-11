@@ -31,31 +31,31 @@ class ArtistInput extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="ui header">
                 <form onSubmit={this.handleSubmit}>
                     <p>
-                    <label>Name</label>
+                    <label>Name: </label>
                         <input type='text' placeholder='Name' value={this.state.name} name="name" onChange={this.handleChange} 
                         />                        
                     </p>
                     <p>
-                    <label>Born</label>
+                    <label>Born: </label>
                         <input type='text' placeholder='Born' 
                         value={this.state.date_of_birth} name="date_of_birth" 
                         onChange={this.handleChange}/>
                     </p>
                     <p>
-                    <label>Died</label>
+                    <label>Died: </label>
                         <input type='text' placeholder='Died' 
                         value={this.state.date_of_death} name="date_of_death" 
                         onChange={this.handleChange}/>
                     </p>
                     <p>
-                    <label>Years Active</label>
+                    <label>Years Active: </label>
                         <input type='text' placeholder='Years Active' value={this.state.years_active} name="years_active" onChange={this.handleChange}/>
                     </p>
                     <p>
-                    <label>Nationality</label>
+                    <label>Nationality: </label>
                         <input type='text' placeholder='Nationality' value={this.state.nationality} name="nationality" onChange={this.handleChange}/>
                     </p>
                     <p>
