@@ -1,6 +1,6 @@
 import React from 'react'
-import {Route, Link} from 'react-router-dom'
-import Artist from './Artist'
+import { Link } from 'react-router-dom'
+
 
 //set up to receive props.  props is being passed from artistsContainer 
 //props creates an object of all the props being passed in
