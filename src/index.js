@@ -1,23 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, applyMiddleware, compose } from 'redux'
-import thunk from 'redux-thunk'
-import { Provider } from 'react-redux'
-import {BrowserRouter as Router} from 'react-router-dom'
-import artistReducer from './reducers/artistReducer'
+import { createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 
+import artistReducer from './reducers/artistReducer';
 import App from './App';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-let store = createStore(artistReducer, composeEnhancers(applyMiddleware(thunk)))
+const store = createStore(artistReducer, composeEnhancers(applyMiddleware(thunk)));
 
 ReactDOM.render(
-  <Provider store={store}>    
-    <Router>
+  <Provider store={store}>  
+    <BrowserRouter>
       <App />
-    </Router>
+    </BrowserRouter>
   </Provider>,
     document.getElementById('root'));
-
-    //redux store

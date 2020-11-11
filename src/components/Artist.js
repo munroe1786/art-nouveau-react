@@ -5,11 +5,11 @@ import WorksContainer from '../containers/WorksContainer'
 
 const Artist = (props) => {
 
-    console.log(props)
+    //console.log(props)
 
     let artist = props.artists.filter(artist => artist.id == props.match.params.id)[0]
 
-    console.log(artist)
+    //console.log(artist)
 
     return (
         <div>

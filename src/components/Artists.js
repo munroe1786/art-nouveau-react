@@ -13,7 +13,8 @@ const Artists = (props) => {
             {props.artists && props.artists.map(artist => 
                 <li key={artist.id}>
                     <Link to={`/artists/${artist.id}`}>{artist.name}</Link>
-                </li> )}
+                </li> 
+            )}
         </div>
     )
 }

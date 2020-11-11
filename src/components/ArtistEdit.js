@@ -4,7 +4,16 @@ import { editArtist } from '../actions/editArtist'
 
 class ArtistEdit extends React.Component {
 
-    state = {name: '', date_of_birth: '', date_of_death: '', years_active: '', nationality: ''} //local state, inside component itself, not in redux store, might use global state if re-using forms--same for creation or updating
+    state = {
+        name: '', 
+        date_of_birth: '', 
+        date_of_death: '', 
+        years_active: '', 
+        nationality: ''
+    } 
+    
+    //local state, inside component itself, not in redux store, might use global 
+    //state if re-using forms--same for creation or updating
 
     //this component will have a form 
 

@@ -1,21 +1,30 @@
 import React from 'react';
-import {connect} from 'react-redux'
-import {fetchArtists} from './actions/fetchArtists'
-import ArtistsContainer from './containers/ArtistsContainer'
+import { Route, Switch } from 'react-router-dom';
+import {connect} from 'react-redux';
+
+import ArtistsContainer from './containers/ArtistsContainer';
+import { fetchArtists } from './actions/fetchArtists';
+
 
 class App extends React.Component {
-
   componentDidMount() {
-    this.props.fetchArtists({type: 'FETCH_ARTISTS', payload: {name: 'Artist'}})
-  }
+    this.props.fetchArtists()
+  };
+  
+  
+  // old method - componentDidMount() {
+    //this.props.fetchArtists({type: 'FETCH_ARTISTS', payload: {name: 'Artist'}})
+  //}
 
   //fetches all artists from api
 
   render() {
     return (
       <div className="App">
-        <h1>Welcome to Art Nouveau Collector</h1>
-        <ArtistsContainer/>
+        <h1>Welcome to Art Nouveau Collector....</h1>
+        <Switch>
+          <Route path='/artists' render={(routerProps) => <ArtistsContainer {...routerProps} />} />
+        </Switch>
       </div>
   );
 }
@@ -28,4 +37,4 @@ class App extends React.Component {
 //}
 //}
 
-export default connect(null, {fetchArtists})(App);
+export default connect(null, { fetchArtists })(App);

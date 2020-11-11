@@ -15,35 +15,17 @@ const Works = (props) => {
     }
     
     return (
-         <div>
+        <div>
             <h3>Works by this artist:</h3>
             {props.works && props.works.map(work =>
-               <Work 
+               <Work
                key={work.id}
                {...work}
                />
-             )}
+            )}
         </div>
+
     )
 }
 
 export default connect(null, {deleteWork})(Works)
-
-//<li key={work.id}>
-//                   <p>
-//                   {work.title}
-//                   </p>
-//                   <p>
-//                   {work.date}
-//                   </p>
-//                   <p>
-//                    {work.image_url}
-//                    </p>
-//                    <p>
-//                       {work.media}
-//                    </p>
-//                   <p>
-//                   {work.description}
-//                   </p>
-
-//<button onClick={() => handleDelete(work)}>Delete</button>
