@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { Route } from 'react-router-dom'
+import { Route, Redirect } from 'react-router-dom'
 
 import Artists from '../components/Artists'
 import Artist from '../components/Artist'
@@ -27,15 +27,11 @@ class ArtistsContainer extends Component {
 
     render() {
         return (
-                <Router>
-                <Switch>
-                    <Route path='/'>
-                        <Redirect to='/artists' render={(routerProps) => <Artists {...routerProps} artists={this.props.artists}/> } />
-                    </Route>
+                <div>
+                    <Route exact path='/artists' render={(routerProps) => <Artists {...routerProps} artists={this.props.artists}/> } />
                     <Route path='/artists/new' component={ArtistInput} />
                     <Route path='/artists/:id' render={(routerProps) => <Artist {...routerProps} artists={this.props.artists}/> } />
-                </Switch>
-                </Router>
+                </div>
         )
         //artists={this.props.artists} - get access to our artists as props in our store 
 
