@@ -46,10 +46,9 @@ class ArtistsContainer extends Component {
 //them to props and send them to our artists component
 
 const mapStateToProps = state => {
-    return {
-        artists: state.artists
-    }
-}
+    artists: state.artists,
+
+};
 
 export default connect(mapStateToProps, { fetchArtists })(ArtistsContainer);
 

@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux'
+
 import {
     ADD_ARTIST,
     ADD_WORK,
@@ -37,7 +38,8 @@ const works = (state = {
 
 
 const rootReducer = combineReducers({
-
+    artists,
+    works
 })
 
 export default rootReducer;
