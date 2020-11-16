@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ArtistsContainer from './containers/ArtistsContainer';
 import NavBar from './components./NavBar';
 import ArtistInput from './components/ArtistInput';
@@ -25,16 +25,23 @@ const App = () => {
               />
             }>
             </Route>
+            <Route path="/artists/:artistId/works/new" render={(routerProps) =>
+              <WorkInput
+                artistId={routerProps.match.params.artistId}
+                history={routerProps.history}
+              />
+            }>
+            </Route>
+            <Route exact path="/works">
+                <WorksContainer />
+            </Route>
           </Switch>
         </div>
       </Router>
   );
 }
-}
 
-
-
-export default connect(null, { fetchArtists })(App);
+export default App;
 
 //const mapState = (state) => {
   //return {
