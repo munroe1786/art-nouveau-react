@@ -4,4 +4,8 @@ export const DELETE_WORK = "DELETE_WORK"
 export const EDIT_ARTIST = "EDIT_ARTIST"
 export const FETCH_ARTIST = "FETCH_ARTIST"
 
+export const addArtist = artist => {
+
+}
+
 
