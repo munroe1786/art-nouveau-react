@@ -10,37 +10,31 @@ import {
   Switch 
 } from 'react-router-dom';
 
-
-
-
-
-
-
-class App extends React.Component {
-  componentDidMount() {
-    this.props.fetchArtists()
-  };
-  
-  //consolelog(this.props)
-  
-  // old method - componentDidMount() {
-    //this.props.fetchArtists({type: 'FETCH_ARTISTS', payload: {name: 'Artist'}})
-  //}
-
-  //fetches all artists from api
-
-  render() {
+const App = () => {
     return (
-      <div className="App">
-        <h1>Welcome to Art Nouveau Collector</h1>
-        <h3>Click on an artist's name below to learn about them and their work</h3>
-        <Switch>
-          <Route path='/artists' render={(routerProps) => <ArtistsContainer {...routerProps} />} />
-        </Switch>
-      </div>
+      <Router>
+        <NavBar />
+        <div className="w-5/6 mx auto">
+          <Switch>
+            <Route exact path="/artists">
+              <ArtistsContainer />
+            </Route>
+            <Route path="/artists/new" render={(routerProps) =>
+              <ArtistInput
+                history={routerProps.history}
+              />
+            }>
+            </Route>
+          </Switch>
+        </div>
+      </Router>
   );
 }
 }
+
+
+
+export default connect(null, { fetchArtists })(App);
 
 //const mapState = (state) => {
   //return {
@@ -48,5 +42,10 @@ class App extends React.Component {
   //}
 //}
 
+//consolelog(this.props)
+  
+  // old method - componentDidMount() {
+    //this.props.fetchArtists({type: 'FETCH_ARTISTS', payload: {name: 'Artist'}})
+  //}
 
-export default connect(null, { fetchArtists })(App);
+  //fetches all artists from api
