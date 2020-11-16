@@ -11,7 +11,9 @@ export const editArtist = (data) => {
         })
         .then(response => response.json())
         .then(artist => dispatch({type: 'EDIT_ARTIST', payload: artist}))
-        //response is string object coming in from the backend, convert it to json, json version comes into next then as the artist, then dispatch straight to the reducer--type of add artist and payload of account
+        //response is string object coming in from the backend, convert it to 
+        //json, json version comes into next then as the artist, then dispatch 
+        //straight to the reducer--type of add artist and payload of account
         //these .thens keeps application from having to send another fetch request
         //this is an explicit dispatch as opposed to building a separate action creator
     }

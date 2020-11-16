@@ -1,5 +1,5 @@
 import React from 'react'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import { addArtist } from '../actions/addArtist'
 
 class ArtistInput extends React.Component {
@@ -34,8 +34,8 @@ class ArtistInput extends React.Component {
             <div className="ui header">
                 <form onSubmit={this.handleSubmit}>
                     <p>
-                    <label>Name: </label>
-                        <input type='text' placeholder='Name' value={this.state.name} name="name" onChange={this.handleChange} 
+                    <label htmlFor="name">Name: </label>
+                        <input type='text' placeholder='Name' value={this.state.name} name="name" id="name" onChange={this.handleChange} 
                         />                        
                     </p>
                     <p>

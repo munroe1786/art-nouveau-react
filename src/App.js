@@ -1,6 +1,8 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import {connect} from 'react-redux';
+//import NavBar from './NavBar';
+
 
 import ArtistsContainer from './containers/ArtistsContainer';
 import { fetchArtists } from './actions/fetchArtists';
@@ -11,6 +13,7 @@ class App extends React.Component {
     this.props.fetchArtists()
   };
   
+  //consolelog(this.props)
   
   // old method - componentDidMount() {
     //this.props.fetchArtists({type: 'FETCH_ARTISTS', payload: {name: 'Artist'}})
@@ -22,6 +25,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>Welcome to Art Nouveau Collector</h1>
+        <h3>Click on an artist's name below to learn about them and their work</h3>
         <Switch>
           <Route path='/artists' render={(routerProps) => <ArtistsContainer {...routerProps} />} />
         </Switch>
@@ -30,11 +34,11 @@ class App extends React.Component {
 }
 }
 
-//const mapStateToProps = (state) => {
+//const mapState = (state) => {
   //return {
-
+    //artistId: state.artist.id
   //}
 //}
-//}
+
 
 export default connect(null, { fetchArtists })(App);

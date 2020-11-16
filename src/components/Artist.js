@@ -8,6 +8,8 @@ const Artist = (props) => {
 
     const artist = props.artists.filter(artist => artist.id == props.match.params.id)[0]
 
+    //const artist = artists.find(artist => artist.id == props.match.params.id)
+
     //console.log(artist)
 
     return (

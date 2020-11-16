@@ -1,6 +1,6 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import {addWork} from '../actions/addWork'
+import { connect } from 'react-redux'
+import { addWork } from '../actions/addWork'
 
 class WorkInput extends React.Component {
     

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import { Route } from 'react-router-dom'
+import { connect } from 'react-redux';
+import { Route, NavLink } from 'react-router-dom';
 
-import Artists from '../components/Artists'
-import Artist from '../components/Artist'
-import ArtistInput from '../components/ArtistInput'
+import Artists from '../components/Artists';
+import Artist from '../components/Artist';
+import ArtistInput from '../components/ArtistInput';
 
-import { fetchArtists } from '../actions/fetchArtists'
+import { fetchArtists } from '../actions/fetchArtists';
 
 
 class ArtistsContainer extends Component {
@@ -31,6 +31,8 @@ class ArtistsContainer extends Component {
                     <Route exact path='/artists' render={(routerProps) => <Artists {...routerProps} artists={this.props.artists}/> } />
                     <Route path='/artists/new' component={ArtistInput} />
                     <Route path='/artists/:id' render={(routerProps) => <Artist {...routerProps} artists={this.props.artists}/> } />
+                    <br />
+                    <NavLink to="/artists/new">Add New Artist</NavLink>
                 </div>
         )
         //artists={this.props.artists} - get access to our artists as props in our store 
