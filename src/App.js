@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import {connect} from 'react-redux';
-//import NavBar from './NavBar';
-
-
 import ArtistsContainer from './containers/ArtistsContainer';
-import { fetchArtists } from './actions/fetchArtists';
+import NavBar from './components./NavBar';
+import ArtistInput from './components/ArtistInput';
+import WorksContainer from './containers/WorksContainer';
+import WorkInput from './components/WorkInput';
+import { 
+  BrowserRouter as Router,
+  Route, 
+  Switch 
+} from 'react-router-dom';
+
+
+
+
+
 
 
 class App extends React.Component {
