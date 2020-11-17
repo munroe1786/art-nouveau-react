@@ -1,4 +1,5 @@
 import React from 'react'
+import Artist from './Artist';
 import { Link } from 'react-router-dom'
 
 
@@ -7,15 +8,16 @@ import { Link } from 'react-router-dom'
 //this component responsible for rendering each artist
 
 
-const Artists = (props) => {
+const Artists = ({ artists }) => {
     return (
-        <div>
-            {props.artists && props.artists.map(artist => 
-                <li key={artist.id}>
-                    <Link to={`/artists/${artist.id}`}>{artist.name}</Link>
-                </li> 
-            )}
-        </div>
+        <ul>
+            {artists.map(artistAttributes => 
+                <Artist
+                    key={artistAttributes.id}
+                    {...artistAttributes}
+                />)
+            }
+        </ul> 
     )
 }
 

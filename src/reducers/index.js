@@ -5,7 +5,8 @@ import {
     ADD_WORK,
     DELETE_WORK,
     EDIT_ARTIST,
-    FETCH_ARTIST
+    FETCHING_ARTISTS,
+    RECEIVE_ARTISTS
 } from '../actions';
 
 const artists = (state = {
@@ -14,6 +15,20 @@ const artists = (state = {
     loading: false
 }, action) => {
     switch(action.type) {
+        case FETCHING_ARTISTS:
+            return {
+                ...state,
+                loading: true
+            }
+        case RECEIVE_ARTISTS:
+            return {
+                items: action.payload.map(artist => artist.id),
+                itemsById: action.payload.reduce((idMap, artist) => {
+                    idMap[artist.id] = artist;
+                    return idMap;
+                }, {}),
+                loading: false
+            }
         case ADD_ARTIST:
             return {
                 ...state,
