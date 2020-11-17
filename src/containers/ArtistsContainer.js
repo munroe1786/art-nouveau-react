@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
+import Artists from '../components/Artists';
 import { connect } from 'react-redux';
 import { Route, NavLink } from 'react-router-dom';
-
-import Artists from '../components/Artists';
 import Artist from '../components/Artist';
 import ArtistInput from '../components/ArtistInput';
 
-import { fetchArtists } from '../actions/fetchArtists';
-
+import { fetchArtists } from '../actions/index';
 
 class ArtistsContainer extends Component {
 
@@ -45,9 +43,10 @@ class ArtistsContainer extends Component {
 //mapStateToProps gets access to artists in our redux store, mapping 
 //them to props and send them to our artists component
 
-const mapStateToProps = state => {
-    artists: state.artists,
-
+const mapStateToProps = ({ artists }) => {
+    return {
+        artists: artists.items.map(artistId => artists.itemsById[artistId])
+    }
 };
 
 export default connect(mapStateToProps, { fetchArtists })(ArtistsContainer);

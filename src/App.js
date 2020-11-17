@@ -1,6 +1,6 @@
 import React from 'react';
 import ArtistsContainer from './containers/ArtistsContainer';
-import NavBar from './components./NavBar';
+import NavBar from './components/NavBar';
 import ArtistInput from './components/ArtistInput';
 import WorksContainer from './containers/WorksContainer';
 import WorkInput from './components/WorkInput';
