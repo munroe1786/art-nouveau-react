@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import Artist from '../components/Artist';
 import ArtistInput from '../components/ArtistInput';
 
-import { fetchArtists, FETCHING_ARTISTS, RECEIVE_ARTISTS } from '../actions/index';
+import { fetchArtists, FETCHING_ARTISTS, RECEIVE_ARTISTS } from '../actions';
 
 class ArtistsContainer extends Component {
 

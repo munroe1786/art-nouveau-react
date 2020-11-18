@@ -32,7 +32,7 @@ export const fetchArtists = () => {
         .then(res => res.json())
         .then(artists => {
             dispatch({
-            type: 'RECEIVE_ARTISTS',
+            type: RECEIVE_ARTISTS,
             payload: artists 
         })
     })

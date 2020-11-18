@@ -15,14 +15,12 @@ const Artist = ({ id, name, date_of_birth, date_of_death, years_active, national
 
     return (
         <div>
-        <li>
-            {name} - {date_of_birth} - {date_of_death} - {years_active} - {nationality}
-    
-        </li>
-        <NavLink to="/artists/:artistId/works/new">Add New Work</NavLink>
+            <li>
+                {id} -{name} - {date_of_birth} - {date_of_death} - {years_active} - {nationality}
+            </li>
+            <NavLink to="/artists/:artistId/works/new">Add New Work</NavLink>
         </div>
     )
-
 }
 
 export default Artist

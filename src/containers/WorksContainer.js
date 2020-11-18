@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux'
 import WorkInput from '../components/WorkInput'
 import Works from '../components/Works'
 
@@ -16,4 +17,11 @@ class WorksContainer extends React.Component {
 
 }
 
-export default WorksContainer
+const mapStateToProps = ({ artists, works }) => {
+    return {
+        works: works.items.map(workId => works)
+        artists: artists.items.map(artistId)
+    }
+}
+
+export default connect()(WorksContainer);

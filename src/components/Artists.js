@@ -10,14 +10,13 @@ import { Link } from 'react-router-dom'
 
 const Artists = ({ artists }) => {
     return (
-        <ul>
-            {artists.map(artistAttributes => 
-                <Artist
-                    key={artistAttributes.id}
-                    {...artistAttributes}
-                />)
-            }
-        </ul> 
+        <div>
+            {artists.map(artist => 
+                <li key={artist.id}>
+                    <Link to={`/artists/${artist.id}`}>{artist.name}</Link>
+                </li> 
+            )}
+        </div>
     )
 }
 
