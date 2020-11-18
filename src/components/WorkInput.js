@@ -19,6 +19,13 @@ class WorkInput extends Component {
     //this.setState updates the value 
     //event.target.name abstracts it out---refers to name on each input field
     //need brackets evaluates the value before trying to set it as a key---without brackets---will try to set it to a key called event.target.name
+    
+    componentDidMount() {
+        if(!this.props.artist) {
+            this.props.fetchArtist(this.props.artistId)
+        }
+    }
+    
     handleChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value
