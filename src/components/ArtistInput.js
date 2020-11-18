@@ -1,13 +1,23 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addArtist } from '../actions/addArtist'
+import { addArtist, ADD_ARTIST } from '../actions'
 
-class ArtistInput extends React.Component {
+class ArtistInput extends Component {
 
     //look into adding bind to state so that this is not undefined--part 1 exercise legger video about 1 hour 35 mins
 
-    state = {name: '', date_of_birth: '', date_of_death: '', years_active: '', nationality: ''} //local state, inside component itself, not in redux store, might use global state if re-using forms--same for creation or updating
-
+    constructor(props) {
+        super(props)
+        this.state = {
+            name: '', 
+            date_of_birth: '', 
+            date_of_death: '', 
+            years_active: '', 
+            nationality: ''
+        } //local state, inside component itself, not in redux store, might use global state if re-using forms--same for creation or updating
+        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+    }
     //this component will have a form 
 
     //event will automatically be passed in if nothing is passed into this.handleOnChange
