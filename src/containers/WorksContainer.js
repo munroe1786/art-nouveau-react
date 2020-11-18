@@ -19,9 +19,11 @@ class WorksContainer extends React.Component {
 
 const mapStateToProps = ({ artists, works }) => {
     return {
-        works: works.items.map(workId => works)
-        artists: artists.items.map(artistId)
+        works: works.items.map(workId => 
+            works.itemsById[workId]),
+        artists: artists.items.map(artistId =>
+            artists.itemsById[artistId])
     }
 }
 
-export default connect()(WorksContainer);
+export default connect(mapStateToProps)(WorksContainer);
