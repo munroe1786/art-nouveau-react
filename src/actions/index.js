@@ -1,9 +1,9 @@
-export const ADD_ARTIST = "ADD_ARTIST"
-export const ADD_WORK = "ADD_WORK"
-export const DELETE_WORK = "DELETE_WORK"
-export const EDIT_ARTIST = "EDIT_ARTIST"
 export const FETCHING_ARTISTS = "FETCHING_ARTISTS"
 export const RECEIVE_ARTISTS = "RECEIVE_ARTISTS"
+export const ADD_ARTIST = "ADD_ARTIST"
+export const FETCHING_WORKS = "FETCHING_WORKS"
+export const RECEIVE_WORKS = "RECEIVE_WORKS"
+export const ADD_WORK = "ADD_WORK"
 
 export const addArtist = artist => {
     return (dispatch) => {
@@ -52,6 +52,27 @@ export const fetchArtist = (artistId) => {
             })
     }
 }
+
+export const addWork = work => {
+    return dispatch => {
+        return fetch('http://localhost:3001/api/v1/works', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(workout)
+        })
+            .then(res => res.json())
+            .then(workout => {
+                dispatch({
+                    type: ADD_WORK,
+                    payload: work
+                })
+            })
+    }
+}
+
+
 
 
 
