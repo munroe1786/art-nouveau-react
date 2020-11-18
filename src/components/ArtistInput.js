@@ -14,18 +14,22 @@ class ArtistInput extends Component {
             date_of_death: '', 
             years_active: '', 
             nationality: ''
-        } //local state, inside component itself, not in redux store, might use global state if re-using forms--same for creation or updating
+        } 
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
-    //this component will have a form 
-
+    
+    //local state, inside component itself, not in redux store, might use global state 
+    //if re-using forms--same for creation or updating
+    
     //event will automatically be passed in if nothing is passed into this.handleOnChange
 
     handleChange = (event) => {
-        //debugger;
         this.setState({
-            [event.target.name]: event.target.value //brackets evaluate event.target.name to read value of attribute and then sets it as the key - assigns a key in an object that needs to be evaluated first---called key interpolation//
+            [event.target.name]: event.target.value 
+            //brackets evaluate event.target.name to read value of attribute and 
+            //then sets it as the key - assigns a key in an object that needs to 
+            //be evaluated first---called key interpolation//
         })
 
     }
@@ -33,43 +37,70 @@ class ArtistInput extends Component {
     handleSubmit = (event) => {
         event.preventDefault()
         this.props.addArtist(this.state)
-        this.setState({name: '', date_of_birth: '', date_of_death: '', years_active: '', nationality: ''
-        })
+            .then(() => {
+                this.props.history.push('/artists')
+            })
     }
+    
 
-    //need data to go to db.  point of app is to save created items in db and update the redux store
+    //need data to go to db.  point of app is to save created items in db and update the 
+    //redux store
 
     render() {
         return (
             <div className="ui header">
                 <form onSubmit={this.handleSubmit}>
                     <p>
-                    <label htmlFor="name">Name: </label>
-                        <input type='text' placeholder='Name' value={this.state.name} name="name" id="name" onChange={this.handleChange} 
+                        <label htmlFor="name">Name: </label>
+                        <input 
+                            type='text'
+                            value={this.state.name} 
+                            name="name" 
+                            id="name" 
+                            onChange={this.handleChange} 
                         />                        
                     </p>
                     <p>
-                    <label>Born: </label>
-                        <input type='text' placeholder='Born' 
-                        value={this.state.date_of_birth} name="date_of_birth" 
-                        onChange={this.handleChange}/>
+                        <label>Born: </label>
+                        <input 
+                            type='text' 
+                            value={this.state.date_of_birth} 
+                            name="date_of_birth" 
+                            onChange={this.handleChange}
+                        />
                     </p>
                     <p>
-                    <label>Died: </label>
-                        <input type='text' placeholder='Died' 
-                        value={this.state.date_of_death} name="date_of_death" 
-                        onChange={this.handleChange}/>
+                        <label>Died: </label>
+                        <input 
+                            type='text' 
+                            value={this.state.date_of_death} 
+                            name="date_of_death" 
+                            onChange={this.handleChange}
+                        />
                     </p>
                     <p>
-                    <label>Years Active: </label>
-                        <input type='text' placeholder='Years Active' value={this.state.years_active} name="years_active" onChange={this.handleChange}/>
+                        <label>Years Active: </label>
+                        <input 
+                            type='text' 
+                            value={this.state.years_active} 
+                            name="years_active" 
+                            onChange={this.handleChange}
+                        />
                     </p>
                     <p>
-                    <label>Nationality: </label>
-                        <input type='text' placeholder='Nationality' value={this.state.nationality} name="nationality" onChange={this.handleChange}/>
+                        <label>Nationality: </label>
+                        <input 
+                            type='text' 
+                            value={this.state.nationality} 
+                            name="nationality" 
+                            onChange={this.handleChange}
+                        />
                     </p>
                     <p>
-                        <input type="submit" />
+                        <input 
+                            type="submit"
+                            value="submit" 
+                        />
                     </p>
                 </form>
             </div>
@@ -77,7 +108,14 @@ class ArtistInput extends Component {
     }
 }
 
-export default connect(null, {addArtist})(ArtistInput)
+export default connect(null, { addArtist })(ArtistInput)
 
 //pass null instead of mapStateToProps because this component does not care about previous state
 //2nd argument is action creator for addArtist---directly importing it due to thunk setup---
+
+//handleSubmit = (event) => {
+    //event.preventDefault()
+    //this.props.addArtist(this.state)
+    //this.setState({name: '', date_of_birth: '', date_of_death: '', years_active: '', nationality: ''
+    //})
+//}
