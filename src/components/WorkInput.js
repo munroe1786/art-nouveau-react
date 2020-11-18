@@ -5,7 +5,7 @@ import { fetchArtist, addWork } from '../actions/addWork'
 class WorkInput extends Component {
     
    constructor(props) {
-       super(props)
+       super()
         this.state = {
             title: '',
             date: '',
@@ -26,28 +26,32 @@ class WorkInput extends Component {
         }
     }
     
-    handleChange = (event) => {
-        this.setState({
-            [event.target.name]: event.target.value
+    handleChange(event) {
+        this.setState({[event.target.name]: event.target.value
         })
 
     }
 
-    handleSubmit = (event) => {
-        event.preventDefault()
-        this.props.addWork(this.state, this.props.artist.id)
-        this.setState({
-            title: '',
-            date: '',
-            image_url: '',
-            media: '',
-            description: ''
+    handleSubmit(event) {
+        event.preventDefault();
+        let newWork = Object.assign({}, this.state, {
+            artist_id: this.props.artist.id
         })
+        this.props.addWork(newWork)
+            .then(res => {
+                this.props.history.push('/works')
+            })
+        }
     }
 
     render() {
-        return (
-            <div>
+        if(!this.props.artist) {
+            return <div></div>
+        } else {
+            const { artist: {name, date_of_birth, date_of_death, 
+                years_active, nationality} } = this.props
+            return (
+                <div>
                 <form onSubmit={this.handleSubmit}>
                     <h3>Add a new work by this artist:</h3>
                     <p>

@@ -7,7 +7,7 @@ class ArtistInput extends Component {
     //look into adding bind to state so that this is not undefined--part 1 exercise legger video about 1 hour 35 mins
 
     constructor(props) {
-        super(props)
+        super()
         this.state = {
             name: '', 
             date_of_birth: '', 
