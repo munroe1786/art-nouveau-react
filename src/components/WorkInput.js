@@ -1,15 +1,20 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addWork } from '../actions/addWork'
+import { fetchArtist, addWork } from '../actions/addWork'
 
-class WorkInput extends React.Component {
+class WorkInput extends Component {
     
-    state = {
-        title: '',
-        date: '',
-        image_url: '',
-        media: '',
-        description: ''
+   constructor(props) {
+       super(props)
+        this.state = {
+            title: '',
+            date: '',
+            image_url: '',
+            media: '',
+            description: ''
+        }
+        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit(this)
     }
     //this.setState updates the value 
     //event.target.name abstracts it out---refers to name on each input field
