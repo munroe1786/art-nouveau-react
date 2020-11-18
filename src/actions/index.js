@@ -39,6 +39,20 @@ export const fetchArtists = () => {
     }
 }
 
+export const fetchArtist = (artistId) => {
+    return dispatch => {
+        dispatch({ type: FETCHING_ARTISTS })
+        return fetch(`http://localhost:3000/api/v1/${artistId}`)
+            .then(res => res.json())
+            .then(artist => {
+                dispatch({
+                    type: RECEIVE_ARTISTS,
+                    payload: [artist]
+                })
+            })
+    }
+}
+
 
 
 

@@ -10,14 +10,25 @@ import { Link } from 'react-router-dom'
 
 const Artists = ({ artists }) => {
     return (
-        <div>
-            {artists.map(artist => 
-                <li key={artist.id}>
-                    <Link to={`/artists/${artist.id}`}>{artist.name}</Link>
-                </li> 
-            )}
-        </div>
+        <ul>
+            {artists.map(artistAttributes => 
+                <Artist
+                    key={artistAttributes.id}
+                    {...artistAttributes}
+                />)
+            }
+        </ul>
     )
 }
 
 export default Artists
+
+//const Artists = ({ artists }) => {
+//    return (
+//        <div>
+//            {artists.map(artist => 
+//                <li key={artist.id}>
+//                    <Link to={`/artists/${artist.id}`}>{artist.name}</Link>
+//                </li> 
+//            )}
+//        </div>

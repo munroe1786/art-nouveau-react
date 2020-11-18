@@ -14,12 +14,13 @@ const Artist = ({ id, name, date_of_birth, date_of_death, years_active, national
     //console.log(artist)
 
     return (
-        <div>
             <li>
-                {id} -{name} - {date_of_birth} - {date_of_death} - {years_active} - {nationality}
+                {name} - {date_of_birth} - {date_of_death} - {years_active} - {nationality}
+                <NavLink to="/artists/:artistId/works/new">Add New Work</NavLink>
+        
             </li>
-            <NavLink to="/artists/:artistId/works/new">Add New Work</NavLink>
-        </div>
+
+        
     )
 }
 
