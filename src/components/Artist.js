@@ -1,9 +1,9 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
-import ArtistEdit from './ArtistEdit'
-import WorksContainer from '../containers/WorksContainer'
+//import ArtistEdit from './ArtistEdit'
+//import WorksContainer from '../containers/WorksContainer'
 
-const Artist = ({ id, name, date_of_birth, date_of_death, years_active, nationality  }) => {
+const Artist = ({ id, name, date_of_birth, date_of_death, years_active, nationality }) => {
 
     //console.log(props)
 
@@ -16,7 +16,9 @@ const Artist = ({ id, name, date_of_birth, date_of_death, years_active, national
     return (
             <li>
                 {name} - {date_of_birth} - {date_of_death} - {years_active} - {nationality}
-                <NavLink to="/artists/:artistId/works/new">Add New Work</NavLink>
+                <NavLink to={`/artists/${id}/works/new`}>
+                    Add New Work
+                </NavLink>
         
             </li>
 

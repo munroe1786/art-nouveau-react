@@ -55,18 +55,32 @@ export const fetchArtist = (artistId) => {
 
 export const addWork = work => {
     return dispatch => {
-        return fetch('http://localhost:3001/api/v1/works', {
+        return fetch(`http://localhost:3000/api/v1/artists/works`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(workout)
+            body: JSON.stringify(work)
         })
             .then(res => res.json())
-            .then(workout => {
+            .then(work => {
                 dispatch({
                     type: ADD_WORK,
                     payload: work
+                })
+            })
+    }
+}
+
+export const fetchWorks = () => {
+    return dispatch => {
+        dispatch({type: FETCHING_WORKS})
+        fetch('http://localhost:3000/works')
+            .then(res => res.json())
+            .then(works => {
+                dispatch({
+                    type: RECEIVE_WORKS,
+                    payload: works
                 })
             })
     }

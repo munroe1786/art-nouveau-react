@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchArtist, addWork } from '../actions/addWork'
+import { fetchArtist, addWork } from '../actions'
 
 class WorkInput extends Component {
     
    constructor(props) {
-       super()
+       super(props)
         this.state = {
             title: '',
             date: '',
@@ -14,7 +14,7 @@ class WorkInput extends Component {
             description: ''
         }
         this.handleChange = this.handleChange.bind(this)
-        this.handleSubmit = this.handleSubmit(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
     //this.setState updates the value 
     //event.target.name abstracts it out---refers to name on each input field
@@ -32,7 +32,7 @@ class WorkInput extends Component {
 
     }
 
-    handleSubmit(event) {
+    handleSubmit = (event) => {
         event.preventDefault();
         let newWork = Object.assign({}, this.state, {
             artist_id: this.props.artist.id
@@ -42,7 +42,7 @@ class WorkInput extends Component {
                 this.props.history.push('/works')
             })
         }
-    }
+
 
     render() {
         if(!this.props.artist) {
@@ -51,51 +51,67 @@ class WorkInput extends Component {
             const { artist: {name, date_of_birth, date_of_death, 
                 years_active, nationality} } = this.props
             return (
-                <div>
                 <form onSubmit={this.handleSubmit}>
                     <h3>Add a new work by this artist:</h3>
                     <p>
                     <label>Title</label>
-                    <input type='text' 
-                        name="title" value={this.state.title}
-                        onChange={this.handleChange}/>
+                    <input 
+                        type='text' 
+                        name="title" 
+                        value={this.state.title}
+                        onChange={this.handleChange}
+                    />
                     </p>
                     <p>
                     <label>Date</label>
-                    <input type='text' 
+                    <input 
+                        type='text' 
                         name="date" 
                         value={this.state.date}
-                        onChange={this.handleChange}/>
+                        onChange={this.handleChange}
+                    />
                     </p>
                     <p>
                     <label>Image</label>
-                    <input type='text' 
+                    <input 
+                        type='text' 
                         name="image_url" 
                         value={this.state.image_url}
-                        onChange={this.handleChange}/>
+                        onChange={this.handleChange}
+                    />
                     </p>
                     <p>
                     <label>Media</label>
-                    <input type='text' 
+                    <input 
+                        type='text' 
                         name="media" 
                         value={this.state.media}
-                        onChange={this.handleChange}/>
+                        onChange={this.handleChange}
+                    />
                     </p>
                     <p>
                     <label>Description</label>
-                    <input type='text'
+                    <input 
+                        type='text'
                         name="description" 
                         value={this.state.description}
-                        onChange={this.handleChange}/>
+                        onChange={this.handleChange}
+                    />
                     </p>
-                    <input type="submit"/>
+                    <input type="submit" value="Submit"/>
                 </form>
-            </div>
-        )
+            )
+        }
     }
 }
 
-export default connect(null, {addWork})(WorkInput)
+const mapStateToProps = ({ artists }, { artistId }) => {
+    return {
+        artist: artists.itemsById[artistId]
+    }
+}
+
+export default connect(mapStateToProps, { addWork, fetchArtist })(WorkInput)
 
 //connect this component so that when we call new transaction function, it dispatches function to our reducer.
 //receives props from TransactionContainer---but will need mapDispatch

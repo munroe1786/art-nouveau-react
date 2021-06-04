@@ -33,7 +33,7 @@ const Work = (props) => {
             <p>
                 {description}
             </p>
-            </section>
+        </section>
     )
 }
 
